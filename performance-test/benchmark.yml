@@ -1,0 +1,24 @@
+execution:
+- executor: jmeter
+  scenario: Greeting
+  concurrency: 2
+  hold-for: 0m5s
+
+scenarios:
+  Greeting:
+    think-time: 0.1
+    requests:
+    - label: Greeting call
+      url: http://localhost:8090/greeting?name=Tim
+      assert:
+       - contains:
+         - 200
+         subject: http-code
+
+reporting:
+- module: final-stats
+  dump-xml: target/taurus-kpi-report.xml
+- module: passfail
+  criteria:
+  - failures>0%, stop as failed
+  - p95>400ms stop as failed
