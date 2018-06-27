@@ -37,6 +37,15 @@ def waitForAppToBeUp() {
   }
 }
 
+def runComponentTest() {
+  echo ">>> Running Component test"
+  try {
+    sh "mvn -f=component-test/pom.xml verify"
+  } finally {
+    junit([healthScaleFactor: 0.0, testResults: '**/target/surefire-reports/*.xml'])
+  }
+}
+
 def runTaurusTest() {
   try {
     sh "./performance-test/taurus.sh"
@@ -63,6 +72,10 @@ node("local-agent") {
   stage('Start Docker container') {
     stopDockerContainerIfRunning()
     startDockerContainer()
+  }
+
+  stage('Component Test') {
+    runComponentTest()
   }
 
   stage('Performance Benchmark Test') {
