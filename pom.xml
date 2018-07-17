@@ -4,94 +4,20 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>app</artifactId>
+	<artifactId>app-root</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>app-server</module>
+		<module>jcstress-test</module>
+	</modules>
 
 	<name>java-ci-example</name>
 	<description>Example of a Java Continuous Integration project</description>
 
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-web</artifactId>
-        <version>1.5.8.RELEASE</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-actuator</artifactId>
-				<version>1.5.8.RELEASE</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-test</artifactId>
-        <version>1.5.8.RELEASE</version>
-				<scope>test</scope>
-			</dependency>
-      <dependency>
-        <groupId>io.rest-assured</groupId>
-        <artifactId>rest-assured</artifactId>
-        <version>3.0.4</version>
-      </dependency>
-		</dependencies>
-
-		<properties>
+	<properties>
 			<java.version>1.8</java.version>
-		</properties>
-
-		<build>
-			<plugins>
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-          <version>1.5.8.RELEASE</version>
-					<configuration>
-						<classifier>exec</classifier>
-					</configuration>
-					<executions>
-						<execution>
-							<id>generateBuildInfo</id>
-							<phase>generate-resources</phase>
-							<goals>
-								<goal>build-info</goal>
-							</goals>
-						</execution>
-						<execution>
-							<id>repackageJar</id>
-							<goals>
-								<goal>repackage</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-failsafe-plugin</artifactId>
-          <version>2.20.1</version>
-          <executions>
-            <execution>
-              <goals>
-                <goal>integration-test</goal>
-                <goal>verify</goal>
-              </goals>
-            </execution>
-          </executions>
-        </plugin>
-			</plugins>
-		</build>
-
-		<repositories>
-			<repository>
-				<id>spring-releases</id>
-				<url>https://repo.spring.io/libs-release</url>
-			</repository>
-		</repositories>
-
-		<pluginRepositories>
-			<pluginRepository>
-				<id>spring-releases</id>
-				<url>https://repo.spring.io/libs-release</url>
-			</pluginRepository>
-		</pluginRepositories>
+	</properties>
 
 	</project>

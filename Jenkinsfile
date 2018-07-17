@@ -11,7 +11,7 @@ def buildTestAndPackageApp() {
 
 def buildDockerImage() {
   echo ">>> Building Docker image"
-  sh "docker build -t app-image ."
+  sh "docker build -t app-image ./app-server"
 }
 
 def stopDockerContainerIfRunning() {
@@ -63,6 +63,10 @@ node("local-agent") {
 
   stage('Build & Test') {
     buildTestAndPackageApp()
+  }
+
+  stage('Concurrency Stress test') {
+
   }
 
   stage('Build Docker image') {

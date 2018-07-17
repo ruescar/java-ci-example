@@ -5,7 +5,7 @@ echo ">>> Building App"
 mvn clean install -DskipTests
 
 echo ">>> Building Docker image"
-docker build -t app-image .
+docker build -t app-image ./app-server
 
 echo ">>> Stopping Docker containers if running"
 docker rm -f $(docker ps -q --filter 'name=app-container') || true > /dev/null
