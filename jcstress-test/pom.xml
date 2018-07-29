@@ -9,7 +9,7 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>app-jcstress-test</artifactId>
+  <artifactId>jcstress-test</artifactId>
 
   <dependencies>
 

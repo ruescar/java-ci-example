@@ -10,6 +10,7 @@
 
 	<modules>
 		<module>app-server</module>
+		<module>component-test</module>
 		<module>jcstress-test</module>
 	</modules>
 

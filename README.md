@@ -30,6 +30,10 @@ The main technologies used are: Java 8, Spring Boot, Docker, Jenkins Pipelines, 
 
     curl -s -X GET http://localhost:8090/greeting?name=Tom
 
+## Run Component tests
+
+    mvn -f=component-test/pom.xml verify -PcompTest
+    
 ## Run Performance Benchmark tests
 
     ./performance-test/taurus.sh

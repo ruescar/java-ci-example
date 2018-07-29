@@ -55,7 +55,7 @@ def waitForAppToBeUp() {
 def runComponentTest() {
   echo ">>> Running Component test"
   try {
-    sh "mvn -f=component-test/pom.xml verify"
+    sh "mvn -f=component-test/pom.xml verify -PcompTest"
   } finally {
     junit([healthScaleFactor: 0.0, testResults: '**/target/surefire-reports/*.xml'])
   }
