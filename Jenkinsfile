@@ -9,6 +9,21 @@ def buildTestAndPackageApp() {
   }
 }
 
+def runJcStressTest() {
+  try {
+    sh "./jcstress-test/jcstress.sh"
+  } finally {
+    publishHTML (target: [
+        allowMissing: false,
+        alwaysLinkToLastBuild: false,
+        keepAll: true,
+        reportDir: 'jcstress-test/results',
+        reportFiles: 'index.html',
+        reportName: "jcstress Report"
+    ])
+  }
+}
+
 def buildDockerImage() {
   echo ">>> Building Docker image"
   sh "docker build -t app-image ./app-server"
@@ -65,8 +80,8 @@ node("local-agent") {
     buildTestAndPackageApp()
   }
 
-  stage('Concurrency Stress test') {
-
+  stage('Concurrency Stress Test') {
+    runJcStressTest()
   }
 
   stage('Build Docker image') {

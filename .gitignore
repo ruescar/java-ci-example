@@ -1,4 +1,6 @@
 target/
+results/
+jcstress-results-*
 
 ### STS ###
 .apt_generated
