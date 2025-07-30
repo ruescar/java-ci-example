@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class GreetingUtilTest {
   @Test
-  public void verifyGreeringBuild(){
+  public void verifyGreetingBuild(){
     assertEquals(buildGreeting("Tom").getGreeting(), "Hello, Tom!");
   }
 }

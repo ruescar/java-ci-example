@@ -7,13 +7,11 @@ public class GreetingUtil {
 
   private static final String template = "Hello, %s!";
   private static final Lock lock = new ReentrantLock();
-  private static Greeting greeting;
 
-  public static Greeting buildGreeting(String name) {
+    public static Greeting buildGreeting(String name) {
     lock.lock();
     try {
-      greeting = new Greeting(String.format(template, name));
-      return greeting;
+        return new Greeting(String.format(template, name));
     } finally {
       lock.unlock();
     }

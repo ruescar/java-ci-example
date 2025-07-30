@@ -1,6 +1,7 @@
 target/
 results/
 jcstress-results-*
+jmeter.log
 
 ### STS ###
 .apt_generated
