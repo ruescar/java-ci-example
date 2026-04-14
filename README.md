@@ -28,7 +28,7 @@ The main technologies used are: Java 8, Spring Boot, Docker, Jenkins Pipelines, 
 
     curl -s -X GET http://localhost:8090/greeting
 
-    curl -s -X GET http://localhost:8090/greeting?name=Tom
+    curl -s -X GET "http://localhost:8090/greeting?name=Tom"
 
 ## Run Component tests
 
